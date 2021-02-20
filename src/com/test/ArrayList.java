@@ -10,6 +10,7 @@ public class ArrayList {
 
     public static int[][] MakeLinearArray(int n){
         final Set<Integer> set = new HashSet<>();
+        //не зададим какой-то предел - ловим ошибку java heap space error
         System.out.println("Choose a diapason of randomizer for massive length:");
         int RandomMax;
         Scanner in = new Scanner(System.in);

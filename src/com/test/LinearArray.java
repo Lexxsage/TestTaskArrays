@@ -11,11 +11,6 @@ public class LinearArray {
         for (int i = 0; i<length;i++){
             LinearArray[i] = random.nextInt();
         }
-        /*System.out.println("Print LinearArray ");
-        for(int i : LinearArray)
-        {
-            System.out.println(i + " ");
-        }*/
         return LinearArray;
     }
 }
