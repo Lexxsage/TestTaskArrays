@@ -8,19 +8,33 @@ import java.util.Set;
 public class ArrayList {
     public static int[][] ArrayList;
 
-    public static int[][] MakeLinearArray(int n){
+    public static int[][] MakeArrayList(int n){
         final Set<Integer> set = new HashSet<>();
+
         //не зададим какой-то предел - ловим ошибку java heap space error
         System.out.println("Choose a diapason of randomizer for massive length:");
         int RandomMax;
         Scanner in = new Scanner(System.in);
         RandomMax = in.nextInt();
+
         ArrayList = new int[n][];
         for (int i = 0; i<n; i++){
             int length =  NonRepeatedNumber(set, RandomMax);
             LinearArray LineArray= new LinearArray();
             ArrayList[i] = LineArray.MakeLinearArray(length);
+
+            if (i %2 == 0){
+                System.out.println("Do sort for i%2 == 0");
+                ArrayList[i] = LinearArray.SortLinearArr();
+            }
+
+            if (i %2 != 0){
+                System.out.println("Do reverse sort for i%2 != 0");
+                ArrayList[i] = LinearArray.SortRevLinearArr();
+            }
         }
+        System.out.println();
+
         return ArrayList;
     }
 
@@ -33,9 +47,10 @@ public class ArrayList {
         }
 
         while (!set.add(number)) {
-            System.out.println("Error, already have it");
+            System.out.println("Error, already have this length. Make new");
             number = random.nextInt(RandomMax);
         }
+
         return number;
     }
 }
